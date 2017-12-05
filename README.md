@@ -1,0 +1,2 @@
+# mypat
+CandleStick patterns
