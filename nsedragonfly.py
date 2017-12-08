@@ -4,8 +4,8 @@ from Doji import Doji
 # Initialize the class
 fostock = FOStocks()
 Doji= Doji()
-lowperct = float(20)
-highperct = float(80)
+lowperct = float(10)
+highperct = float(90)
 
 # Construct the input parameters
 stockList = fostock.getfostocks()
