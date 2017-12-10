@@ -26,11 +26,25 @@ class Doji:
                         if closelowperct < lowperct and openlowperct < lowperct:
                             if highopenperct > highperct and highcloseperct > highperct:
                                 dojiList.append(stockName)
+                    elif place == "MIDDLE":
+                        if highopenperct > lowperct and highcloseperct > lowperct \
+                                and openlowperct > lowperct and closelowperct > lowperct:
+                                dojiList.append(stockName)
             except KeyError:
                 a = 1
         return dojiList
 
-    def getPrice(self, stockName, filePath):
-        priceDict={}
-
-        return priceDict
+    def getCondition(self, stockName, dataframe, highValue, lowValue, percentage):
+        check = False
+        try:
+            high = dataframe.loc[stockName, highValue]
+            low = dataframe.loc[stockName, lowValue]
+            openv = dataframe.loc[stockName, 'OPEN_PRICE']
+            difference = high - low
+            if difference > 0:
+                highlowperct = (high - low) / openv * 100
+                if highlowperct > percentage:
+                    check = True
+        except KeyError:
+            a = 1
+        return check
