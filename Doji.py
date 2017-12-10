@@ -1,6 +1,6 @@
 class Doji:
 
-    def getDoji(self, stockList, dataframe, lowperct, highperct):
+    def getDoji(self, stockList, dataframe, lowperct, highperct, place):
         dojiList=[]
         debug = False
         for stockName in stockList:
@@ -18,9 +18,19 @@ class Doji:
                     if debug:
                         print("closelowperct,openlowperct,highopenperct,highcloseperct" + str(closelowperct) +
                               str(openlowperct) + str(highopenperct)+str(highcloseperct))
-                    if highopenperct < lowperct and highcloseperct < lowperct:
-                        if closelowperct > highperct and openlowperct > highperct:
-                            dojiList.append(stockName)
+                    if place == "TOP":
+                        if highopenperct < lowperct and highcloseperct < lowperct:
+                            if closelowperct > highperct and openlowperct > highperct:
+                                dojiList.append(stockName)
+                    elif place == "BOTTOM":
+                        if closelowperct < lowperct and openlowperct < lowperct:
+                            if highopenperct > highperct and highcloseperct > highperct:
+                                dojiList.append(stockName)
             except KeyError:
                 a = 1
         return dojiList
+
+    def getPrice(self, stockName, filePath):
+        priceDict={}
+
+        return priceDict

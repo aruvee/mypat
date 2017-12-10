@@ -12,6 +12,6 @@ stockList = fostock.getfostocks()
 path = fostock.gettodaypath()
 dataframe = fostock.getfopandas(path)
 
-dojiList = Doji.getDoji(stockList, dataframe, lowperct, highperct)
+dojiList = Doji.getDoji(stockList, dataframe, lowperct, highperct, "TOP")
 for stockName in dojiList:
     print(stockName)
