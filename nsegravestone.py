@@ -28,10 +28,10 @@ for stockName in dojiList:
         else:
             graveStoneListCo.append(stockName)
 
-print("GraveStone List")
+
 for stockName in graveStoneList:
     print(stockName)
 
-print("GraveStone List Close Only")
+print("Close Only")
 for stockName in graveStoneListCo:
     print(stockName)
