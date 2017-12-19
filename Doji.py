@@ -10,6 +10,7 @@ class Doji:
                 low = dataframe.loc[stockName, 'LO_PRICE']
                 close = dataframe.loc[stockName, 'CLOSE_PRICE']
                 difference = high - low
+                #print(stockName)
                 if difference > 0:
                     closelowperct = (close - low) / difference * 100
                     openlowperct = (openv - low) / difference * 100
@@ -30,8 +31,8 @@ class Doji:
                         if highopenperct > lowperct and highcloseperct > lowperct \
                                 and openlowperct > lowperct and closelowperct > lowperct:
                                 dojiList.append(stockName)
-            except KeyError:
-                a = 1
+            except KeyError as e:
+               a = 1
         return dojiList
 
     def getCondition(self, stockName, dataframe, highValue, lowValue, percentage):
