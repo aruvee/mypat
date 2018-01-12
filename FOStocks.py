@@ -11,7 +11,7 @@ class FOStocks:
 
     def getfopandas(self, path):
         dataframe= pandas.read_csv(path, index_col=1)
-        dataframe=dataframe.loc[dataframe['EXP_DATE'] == '28-12-17']
+        dataframe=dataframe.loc[dataframe['EXP_DATE'] == '25-01-18']
         return dataframe
 
     def getbsepandas(self, path):
