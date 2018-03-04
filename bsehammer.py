@@ -12,6 +12,7 @@ stockList = []
 
 path = fostock.getbsetodaypath()
 dataframe = fostock.getbsepandas(path)
+dataframe = dataframe.sort_values(by=['SC_GROUP'])
 
 path = fostock.getbseprevpath()
 prevdataframe = fostock.getbsepandas(path)
@@ -40,6 +41,7 @@ for stockName in dojiList:
             close = pprevdataframe.loc[stockName, "CLOSE"]
             #print(open, close)
             if close < open:
-                print(stockName)
+                category = pprevdataframe.loc[stockName, "SC_GROUP"]
+                print(stockName, category, close)
     except KeyError:
         a = 1

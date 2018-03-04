@@ -17,8 +17,8 @@ class Doji:
                     highopenperct = (high - openv) / difference * 100
                     highcloseperct = (high - close) / difference * 100
                     if debug:
-                        print("closelowperct,openlowperct,highopenperct,highcloseperct" + str(closelowperct) +
-                              str(openlowperct) + str(highopenperct)+str(highcloseperct))
+                        print("closelowperct,openlowperct,highopenperct,highcloseperct" + "\n" + str(closelowperct) + "\n" +
+                              str(openlowperct) + "\n" +  str(highopenperct)+ "\n" +  str(highcloseperct))
                     if place == "TOP":
                         if highopenperct < lowperct and highcloseperct < lowperct:
                             if closelowperct > highperct and openlowperct > highperct:
